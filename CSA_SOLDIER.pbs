@@ -1,0 +1,31 @@
+#!/bin/bash
+#SBATCH --partition=g6
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+##
+#SBATCH -J "local0"
+#SBATCH -o STDOUT.%j.out
+#SBATCH -e STDERR.%j.err
+#SBATCH -t 10-24:00:00  # The job can take at most 10 days 24 wall-clock hours.
+
+#module purge
+#module load iomkl
+
+conda init --all --dry-run --verbose
+source /home/ihlee/anaconda3/etc/profile.d/conda.sh
+conda activate m3gnet
+
+if false; then
+/home/ihlee/anaconda3/envs/scope/bin/python local.py < POSCAR-conv  >  POSCAR_out_InAs0
+fi
+
+if true; then
+#/home/ihlee/anaconda3/envs/m3gnet/bin/python local.py < POSCAR_in > POSCAR_out
+#
+for i in $(seq -f "%04g" 0 999)
+do
+/home/ihlee/anaconda3/envs/scope/bin/python local.py < POSCAR_$i  >  POSCAR_out_$i
+sleep 0.1
+done
+fi
+

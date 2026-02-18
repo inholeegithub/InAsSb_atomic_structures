@@ -4,3 +4,14 @@ at the atomic level, we used artificial neural network based potentials.
 
 
 https://github.com/inholeegithub/InAsSb_atomic_structures.git
+
+## Workflow Overview
+
+```mermaid
+flowchart TD
+    A[Build InAs Atomic Structure] --> B[Introduce Sb Atoms]
+    B --> C[Generate Training Dataset]
+    C --> D[Train ANN-Based Potential]
+    D --> E[Run Atomic-Scale Simulations]
+    E --> F[Analyze Sb Incorporation Effects]
+```

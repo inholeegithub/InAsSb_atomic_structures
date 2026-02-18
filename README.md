@@ -9,9 +9,9 @@ https://github.com/inholeegithub/InAsSb_atomic_structures.git
 
 ```mermaid
 flowchart TD
-    A[Build InAs Atomic Structure] --> B[Introduce Sb Atoms]
-    B --> C[Generate Training Dataset]
-    C --> D[Train ANN-Based Potential]
+    A[Build InAs Unit Cell] --> B[Introduce Sb Atoms]
+    B --> C[Load Pretrained ANN Potential]
+    C --> D[Fully Relax Unit Cell]
     D --> E[Run Atomic-Scale Simulations]
     E --> F[Analyze Sb Incorporation Effects]
 ```
